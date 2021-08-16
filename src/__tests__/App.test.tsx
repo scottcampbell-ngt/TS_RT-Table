@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Table from '../components/Table';
 import App from '../App';
+import { transpileModule } from 'typescript';
 
 let wrapped;
 
