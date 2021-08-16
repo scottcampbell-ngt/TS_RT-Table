@@ -16,13 +16,14 @@ import Checkbox from "../hooks/CheckBox";
 import "../style/table.css";
 
 type row = {
-    id: number,
+    application_id: number,
 	company_name: string,
-	account_holder: string,
-	email: string
-	start_date: string,
-	city: string,
-	phone: number
+	primary_applicant: string,
+	application_state: string,
+	time_last_modified: string,
+    amt_requested: string,
+	offered: string,
+    amt_received: string
 }
 
 const Table = ({columns, data, updateMyData}:TableOptions<any>) => {

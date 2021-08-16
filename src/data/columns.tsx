@@ -1,11 +1,10 @@
-//import { format } from 'date-fns';
 import ColumnFilter from '../hooks/ColumnFilter';
 
 export const COLUMNS = [
 	{
-		Header: 'Id',
-		Footer: 'Id',
-		accessor: 'id',
+		Header: 'Application Id',
+		Footer: 'Application Id',
+		accessor: 'application_id',
 		Filter: ColumnFilter,
 		disableFilters: true,
 	},
@@ -14,43 +13,53 @@ export const COLUMNS = [
 		Footer: 'Company Name',
 		accessor: 'company_name',
 		Filter: ColumnFilter,
+		disableFilters: true,
 	},
 	{
-		Header: 'Account Holder',
-		Footer: 'Account Holder',
-		accessor: 'account_holder',
+		Header: 'Primary Applicant',
+		Footer: 'Primary Applicant',
+		accessor: 'primary_applicant',
+		Filter: ColumnFilter,
+		disableFilters: true,
+
+	},
+	{
+		Header: 'Application State',
+		Footer: 'Application State',
+		accessor: 'application_state',
+		Filter: ColumnFilter,
+		disableFilters: true,
+
+		
+	},
+	{
+		Header: 'Time Last Modified',
+		Footer: 'Time Last Modified',
+		accessor: 'time_last_modified',
+		disableFilters: true,
 		Filter: ColumnFilter,
 	},
 	{
-		Header: 'Email',
-		Footer: 'Email',
-		accessor: 'email',
+		Header: 'Amt. Requested',
+		Footer: 'Amt. Requested',
+		accessor: 'amt_requested',
 		Filter: ColumnFilter,
 		disableFilters: true,
 	},
 	{
-		Header: 'Phone',
-		Footer: 'Phone',
-		accessor: 'phone',
+		Header: 'Offered',
+		Footer: 'Offered',
+		accessor: 'offered',
 		Filter: ColumnFilter,
 		disableFilters: true,
 	},
 	{
-		Header: 'Start Date',
-		Footer: 'Start',
-		accessor: 'start_date',
+		Header: 'Amt. Received',
+		Footer: 'Amt. Received',
+		accessor: 'amt_received',
 		Filter: ColumnFilter,
 		disableFilters: true,
-		// Cell: ({ value }) => {
-		// 	return format(value, 'dd/MM/yyyy');
-		// },
-	},
-	{
-		Header: 'City',
-		Footer: 'City',
-		accessor: 'city',
-		Filter: ColumnFilter,
-	},
+	}
 ];
 
 export const GROUPED_COLS = [
