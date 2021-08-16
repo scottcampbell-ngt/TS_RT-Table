@@ -1,36 +1,32 @@
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
+import { shallow } from 'enzyme';
 import Table from '../components/Table';
-import { TableOptions } from 'react-table';
+import SelectedRows from '../components/SelectedRows';
 import DATA from "../data/data.json";
 import { COLUMNS } from "../data/columns";
 
+let wrapped:any; 
 
+beforeEach(() => wrapped = shallow<typeof Table>(<Table  columns={COLUMNS}  data={DATA} />)); 
 
-const wrapped = shallow<typeof Table>(<Table  columns={COLUMNS}  data={DATA} />);
+afterEach(() => wrapped.unmount());
 
 it('renders the app queue table', () => {
     expect(wrapped.find('table').length).toEqual(1)
-
 });
 
-//   it('renders an `.icon-star`', () => {
-//     const wrapper = shallow(<Table />);
-//     expect(wrapper.find('.icon-star')).to.have.lengthOf(1);
-//   });
+it('renders each column plus additional column for selection', () => {
+    expect(wrapped.find('th').length).toEqual(COLUMNS.length + 1);
+})
 
-//   it('renders children when passed in', () => {
-//     const wrapper = shallow((
-//       <Table>
-//         <div className="unique" />
-//       </Table>
-//     ));
-//     expect(wrapper.contains(<div className="unique" />)).to.equal(true);
-//   });
+it('renders four buttons for pagination', () => {
+    expect(wrapped.find('button').length).toEqual(4);
+})
 
-//   it('simulates click events', () => {
-//     const onButtonClick = sinon.spy();
-//     const wrapper = shallow(<Foo onButtonClick={onButtonClick} />);
-//     wrapper.find('button').simulate('click');
-//     expect(onButtonClick).to.have.property('callCount', 1);
-//   });
+it('renders drop down for record display range', () => {
+    expect(wrapped.find('select').length).toEqual(1);
+})
+
+it('renders component containing data of selected rows', () => {
+    expect(wrapped.find(SelectedRows).length).toEqual(1);
+})

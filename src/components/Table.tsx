@@ -12,7 +12,7 @@ import {
   UseRowSelectInstanceProps
 } from "react-table";
 
-import Checkbox from "../hooks/CheckBox";
+import Checkbox from "./CheckBox";
 import "../style/table.css";
 
 type row = {
@@ -60,7 +60,7 @@ const Table = ({columns, data, updateMyData}:TableOptions<any>) => {
         {
           id: "selection",
           Header: ({ getToggleAllRowsSelectedProps }: UseRowSelectInstanceProps<row> ) => (
-            <Checkbox {...getToggleAllRowsSelectedProps()} />
+            <Checkbox className='check-box' {...getToggleAllRowsSelectedProps()} />
           ),
           Cell: ({ row }:any) => <Checkbox {...row.getToggleRowSelectedProps()} />,
         },
@@ -79,7 +79,6 @@ const Table = ({columns, data, updateMyData}:TableOptions<any>) => {
 
   return (
     <div>
-      <h3>React-Table Table</h3>
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((hg) => (
